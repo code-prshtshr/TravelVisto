@@ -2,12 +2,9 @@ import { Link, redirect } from "react-router";
 import { account } from "~/appwrite/client";
 import { ButtonComponent } from "@syncfusion/ej2-react-buttons";
 import { loginWithGoogle, } from "~/appwrite/auth";
-import {BrowserRouter as Router} from "react-router";
 
 const SignIn = () => {
   return (
-      <Router>
-
     <main className="auth">
       <section className="size-full glassmorphism flex-center px-6">
         <div className="sign-in-card">
@@ -52,7 +49,6 @@ const SignIn = () => {
         </div>
       </section>
     </main>
-      </Router>
   );
 };
 export default SignIn;

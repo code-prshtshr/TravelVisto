@@ -3,8 +3,8 @@ import { SidebarComponent } from "@syncfusion/ej2-react-navigations";
 import MobileSidebar from "../../../components/MobileSidebar";
 import NavItems from "../../../components/Navitems";
 import { account } from "~/appwrite/client";
-import { getExistingUser} from "~/appwrite/auth";
-import {BrowserRouter as Router} from "react-router";
+import { getExistingUser } from "~/appwrite/auth";
+//import { BrowserRouter as Router } from "react-router";
 
 export async function clientLoader() {
   try {
@@ -25,26 +25,21 @@ export async function clientLoader() {
   }
 }
 
-
-
 const AdminLayout = () => {
   return (
-      <Router>
+      <div className="admin-layout">
+        <MobileSidebar />
 
-    <div className="admin-layout">
-      <MobileSidebar />
+        <aside className="w-full max-w-[270px] hidden lg:block">
+          <SidebarComponent width={270} enableGestures={false}>
+            <NavItems />
+          </SidebarComponent>
+        </aside>
 
-      <aside className="w-full max-w-[270px] hidden lg:block">
-        <SidebarComponent width={270} enableGestures={false}>
-          <NavItems />
-        </SidebarComponent>
-      </aside>
-
-      <aside className="children">
-        <Outlet />
-      </aside>
-    </div>
-      </Router>
+        <aside className="children">
+          <Outlet />
+        </aside>
+      </div>
   );
 };
 export default AdminLayout;
